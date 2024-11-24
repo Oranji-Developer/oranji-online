@@ -1,7 +1,7 @@
 ---
 import '@/styles/globals.css'
-import Layout from '../layouts/Layout.astro';
-import {ModeToggle} from "../components/ModeToggle";
+import Layout from '@/layouts/Layout.astro';
+import {Navbar} from '@/components/Navbar';
 ---
 <script is:inline>
     const getThemePreference = () => {
@@ -23,8 +23,11 @@ import {ModeToggle} from "../components/ModeToggle";
 </script>
 
 <Layout title="Oranji Online">
-    <main class="w-full px-28 pt-7 dark:bg-black">
-        <ModeToggle client:load/>
+    <div class="theme-transition-overlay-dark"></div>
+    <div class="theme-transition-overlay-light"></div>
+    <main class="w-full px-28 pt-7">
+        <Navbar client:load/>
+        <div id="about"></div>
     </main>
 </Layout>
 
