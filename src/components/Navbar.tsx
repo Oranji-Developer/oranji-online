@@ -25,7 +25,7 @@ export const Navbar: React.FC = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       className={cn(
-        "fixed top-0 left-0 right-0 flex justify-between items-center w-full px-28 py-4 transition-all duration-300",
+        "fixed top-0 left-0 right-0 flex justify-between items-center w-full px-28 py-4 transition-all duration-300 z-50",
         isScrolled ? "bg-white shadow-md" : "bg-transparent"
       )}
     >

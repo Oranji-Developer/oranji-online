@@ -18,6 +18,25 @@ const { title } = Astro.props;
 		<link rel="manifest" href="favicon_io/site.webmanifest">
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+		<script is:inline>
+  // theme bootstrap: set html.dark sebelum paint/hydration
+		(function() {
+			try {
+			var ls = typeof localStorage !== 'undefined' ? localStorage.getItem('theme') : null;
+			var theme = ls ? ls : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+			if (theme === 'dark') document.documentElement.classList.add('dark');
+			else document.documentElement.classList.remove('dark');
+
+			// sinkronkan perubahan class ke localStorage
+			var obs = new MutationObserver(function() {
+				var isDark = document.documentElement.classList.contains('dark');
+				try { localStorage.setItem('theme', isDark ? 'dark' : 'light'); } catch {}
+			});
+			obs.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+			} catch {}
+		})();
+</script>
+
 	</head>
 	<body>
 		<slot />

@@ -6,7 +6,7 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
+    --background: 0 0% 98%;
     --foreground: 20 14.3% 4.1%;
     --card: 0 0% 100%;
     --card-foreground: 20 14.3% 4.1%;
@@ -84,6 +84,7 @@
     bottom: 0;
     clip-path: circle(150% at top);
     background-color: #ffffff;
+    z-index: -1;
     transition: clip-path 1s ease-in-out;
   }
 
@@ -96,6 +97,7 @@
     right: 0;
     bottom: 0;
     clip-path: circle(0% at top);
+    z-index: -1;
     background-color: #1a1a1a;
     transition: clip-path 1s ease-in-out;
     opacity: 0;
